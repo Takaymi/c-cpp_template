@@ -1,0 +1,3 @@
+<filename>.exe
+
+* This is just an example so this folder is not ignored by gitignore.
