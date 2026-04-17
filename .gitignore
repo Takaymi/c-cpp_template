@@ -1,5 +1,5 @@
-# build/ | UNCOMMENT THIS!
-# *.exe COMMENT THIS!
+# build/ UNCOMMENT THIS!!
+*.exe
 *.o
 *.obj
 
