@@ -1,0 +1,6 @@
+# build/ | UNCOMMENT THIS!
+# *.exe COMMENT THIS!
+*.o
+*.obj
+
+.history/

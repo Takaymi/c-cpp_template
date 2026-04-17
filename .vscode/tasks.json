@@ -1,0 +1,53 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Create Build Folder",
+      "type": "shell",
+      "command": "mkdir",
+      "args": ["-Force", "build"],
+      "windows": {
+        "command": "powershell",
+        "args": [
+          "-Command",
+          "if (!(Test-Path \"${workspaceFolder}\\build\")) { New-Item -ItemType Directory -Path \"${workspaceFolder}\\build\" }"
+        ]
+      }
+    },
+    {
+      "type": "cppbuild",
+      "label": "Build C Code (gcc)",
+      "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "-Wall",
+        "${file}",
+        "-o",
+        "${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe"
+      ],
+      "dependsOn": ["Create Build Folder"],
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "type": "cppbuild",
+      "label": "Build C++ Code (g++)",
+      "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "-std=c++23",
+        "-Wall",
+        "${file}",
+        "-o",
+        "${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe"
+      ],
+      "dependsOn": ["Create Build Folder"],
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
